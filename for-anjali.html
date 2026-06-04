@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Anjali 🌿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-deep:   #1a3d1a;
+    --green-mid:    #2d5a2d;
+    --green-soft:   #4a7c4a;
+    --green-pale:   #a8cfa8;
+    --green-wash:   #e4f0e4;
+    --green-foam:   #f0f7f0;
+    --pink-deep:    #b04070;
+    --pink-mid:     #c2547a;
+    --pink-soft:    #d97fa0;
+    --pink-pale:    #f4b8cc;
+    --pink-wash:    #fce8f0;
+    --cream:        #faf8f4;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--green-deep);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(170deg, var(--green-wash) 0%, var(--pink-wash) 100%);
+  }
+
+  .hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .blob-1 { width: 320px; height: 320px; top: -100px; left: -80px; background: rgba(168,207,168,0.25); }
+  .blob-2 { width: 200px; height: 200px; bottom: -60px; right: -40px; background: rgba(244,184,204,0.3); }
+  .blob-3 { width: 120px; height: 120px; top: 40px; right: 15%; background: rgba(168,207,168,0.18); }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-leaf {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1.25rem;
+    animation: floatLeaf 4s ease-in-out infinite;
+  }
+
+  @keyframes floatLeaf {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    line-height: 1.2;
+    color: var(--green-deep);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--pink-mid);
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+    color: var(--green-soft);
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    margin-top: 0.75rem;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--green-pale), var(--pink-pale));
+    margin: 1.25rem auto 0;
+  }
+
+  /* ── GRID ── */
+  .cards-section {
+    padding: 3rem 1.5rem 4rem;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: #fff;
+    border-radius: 22px;
+    border: 1px solid rgba(168,207,168,0.5);
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 1.6rem 1.75rem;
+    text-align: center;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 22px 22px 0 0;
+    background: linear-gradient(90deg, var(--green-pale), var(--pink-pale));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(45,90,45,0.1); }
+  .card:hover::before { opacity: 1; }
+
+  .card-emoji {
+    font-size: 2.4rem;
+    display: block;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover .card-emoji { transform: scale(1.15) rotate(5deg); }
+
+  .card-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green-pale);
+    margin-bottom: 0.4rem;
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+    color: var(--green-deep);
+    line-height: 1.3;
+  }
+
+  .card-hint {
+    font-size: 0.8rem;
+    color: var(--pink-soft);
+    font-style: italic;
+    margin-top: 0.7rem;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .card-btn {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    border: 1px solid var(--green-pale);
+    color: var(--green-soft);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .card:hover .card-btn {
+    background: var(--green-wash);
+    color: var(--green-mid);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--green-pale);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 61, 26, 0.4);
+    backdrop-filter: blur(6px);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal-overlay.open {
+    display: flex;
+    opacity: 1;
+  }
+
+  .modal {
+    background: var(--cream);
+    border-radius: 28px;
+    padding: 3rem 2.25rem 2.5rem;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    border: 1px solid rgba(168,207,168,0.4);
+    max-height: 88vh;
+    overflow-y: auto;
+    transform: scale(0.93) translateY(20px);
+    transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
+    scrollbar-width: thin;
+    scrollbar-color: var(--green-pale) transparent;
+  }
+
+  .modal-overlay.open .modal {
+    transform: scale(1) translateY(0);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.1rem; right: 1.1rem;
+    background: var(--green-wash);
+    border: none;
+    border-radius: 50%;
+    width: 34px; height: 34px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--green-soft);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+
+  .modal-close:hover { background: var(--green-pale); color: var(--green-deep); }
+
+  .modal-emoji {
+    font-size: 3rem;
+    text-align: center;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .modal h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: var(--green-deep);
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal h2 em { color: var(--pink-mid); font-style: italic; }
+
+  .modal-rule {
+    width: 50px; height: 1.5px;
+    background: linear-gradient(90deg, var(--green-pale), var(--pink-pale));
+    margin: 1rem auto 1.5rem;
+    border-radius: 2px;
+  }
+
+  .modal-body {
+    font-size: 0.93rem;
+    color: #3a5a3a;
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  .modal-body p { margin-bottom: 1.1rem; }
+  .modal-body p:last-child { margin-bottom: 0; }
+  .modal-body strong { font-weight: 500; color: var(--green-mid); }
+
+  .modal-sign {
+    text-align: center;
+    margin-top: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--pink-mid);
+    font-size: 1.05rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(168,207,168,0.3);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card {
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+  .card:nth-child(1) { animation-delay: 0.1s; }
+  .card:nth-child(2) { animation-delay: 0.2s; }
+  .card:nth-child(3) { animation-delay: 0.3s; }
+  .card:nth-child(4) { animation-delay: 0.4s; }
+  .card:nth-child(5) { animation-delay: 0.5s; }
+
+  @media (max-width: 480px) {
+    .hero { padding: 3.5rem 1.25rem 3rem; }
+    .modal { padding: 2.5rem 1.5rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob blob-1"></div>
+  <div class="hero-blob blob-2"></div>
+  <div class="hero-blob blob-3"></div>
+  <div class="hero-content">
+    <span class="hero-leaf">🌿</span>
+    <h1>This little corner<br>was made for <em>you, Anjali</em></h1>
+    <p class="hero-sub">tap a card whenever you need a tiny hug ✨</p>
+    <div class="hero-divider"></div>
+  </div>
+</section>
+
+<!-- CARDS -->
+<section class="cards-section">
+  <div class="cards-grid">
+
+    <div class="card" onclick="openModal('sad')">
+      <span class="card-emoji">🌧️</span>
+      <p class="card-eyebrow">a letter for when</p>
+      <h2 class="card-title">Open when<br>you're sad</h2>
+      <p class="card-hint">"I wrote this thinking of you..."</p>
+      <span class="card-btn">open this one</span>
+    </div>
+
+    <div class="card" onclick="openModal('stressed')">
+      <span class="card-emoji">🍃</span>
+      <p class="card-eyebrow">a letter for when</p>
+      <h2 class="card-title">Open when<br>you're stressed</h2>
+      <p class="card-hint">"Take a breath first, then read."</p>
+      <span class="card-btn">open this one</span>
+    </div>
+
+    <div class="card" onclick="openModal('miss')">
+      <span class="card-emoji">💌</span>
+      <p class="card-eyebrow">a letter for when</p>
+      <h2 class="card-title">Open when<br>you miss me</h2>
+      <p class="card-hint">"I'm closer than you think."</p>
+      <span class="card-btn">open this one</span>
+    </div>
+
+    <div class="card" onclick="openModal('motivate')">
+      <span class="card-emoji">🌱</span>
+      <p class="card-eyebrow">a letter for when</p>
+      <h2 class="card-title">Open when you<br>need motivation</h2>
+      <p class="card-hint">"You've got this. No, really."</p>
+      <span class="card-btn">open this one</span>
+    </div>
+
+    <div class="card" onclick="openModal('sleep')">
+      <span class="card-emoji">🌙</span>
+      <p class="card-eyebrow">a letter for when</p>
+      <h2 class="card-title">Open when you<br>can't sleep</h2>
+      <p class="card-hint">"Let me keep you company."</p>
+      <span class="card-btn">open this one</span>
+    </div>
+
+  </div>
+</section>
+
+<p class="footer">made with too much love and not enough sleep 🌿</p>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="overlay" onclick="closeOnBg(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-emoji" id="m-emoji"></span>
+    <h2 id="m-title"></h2>
+    <div class="modal-rule"></div>
+    <div class="modal-body" id="m-body"></div>
+    <p class="modal-sign" id="m-sign"></p>
+  </div>
+</div>
+
+<script>
+const letters = {
+  sad: {
+    emoji: '🌧️',
+    title: 'Hey Anjali — it\'s okay to be <em>sad</em>.',
+    body: `<p>I know right now it feels heavy. Like there's a little cloud sitting right over your head and it won't move. That's okay. You don't have to fix it or explain it or push it away.</p>
+<p>Cry if you need to. Wrap yourself in your softest blanket. Eat something warm. You're allowed to feel everything without needing a reason for it.</p>
+<p><strong>But here's what I need you to remember, Anjali:</strong> this feeling — however big it seems right now — is not permanent. You have come through hard days before. Quietly, without fuss, you always make it through.</p>
+<p>And the whole time, even when you don't feel it, you are so incredibly loved. By me, more than I could ever type out in a letter. The sad version of you is still my favourite person in the whole world.</p>
+<p>When you're ready, I'm here. We don't even have to talk. I just want to be near you. 🌿</p>`,
+    sign: '— with all my love, always 💚'
+  },
+  stressed: {
+    emoji: '🍃',
+    title: 'Hey — put it down for <em>a moment</em>.',
+    body: `<p>Whatever is making your chest feel tight right now — the deadline, the to-do list, the thing you keep replaying in your head — it will still be there in two minutes. But right now, just breathe with me.</p>
+<p><strong>In for 4 counts. Hold for 4. Out for 4.</strong> Do it, Anjali. I'll wait.</p>
+<p>Okay. Good girl.</p>
+<p>Here's the truth: you take on so much. You push through things that most people wouldn't even attempt. And somehow you still show up, still try, still care. That's not nothing — that's actually everything.</p>
+<p>The world is not going to fall apart if you take 10 minutes. Make chai. Step outside. Put on a song that makes you feel something. Your brain needs rest, not another lap.</p>
+<p>You are more than your productivity, love. So much more. 🍃</p>`,
+    sign: '— go easy on yourself, please 💚'
+  },
+  miss: {
+    emoji: '💌',
+    title: 'I miss you too, Anjali. <em>So much.</em>',
+    body: `<p>The distance — whether it's miles or just hours — doesn't change anything between us. I think about you in the middle of doing completely unrelated things. A song comes on. Something happens and my first thought is "I have to tell Anjali."</p>
+<p>You are woven into my everyday in ways you probably don't even know.</p>
+<p><strong>When you miss me:</strong> know that somewhere, I'm probably thinking about something you said. Or laughing at something only we would find funny. Or wishing I could just sit next to you, doing absolutely nothing, which would somehow be the best part of my day.</p>
+<p>Missing each other means we have something real. Something worth missing. And that's honestly one of the most beautiful things I know.</p>
+<p>Until I can be there — I hope reading this felt like a little bit of me showing up. Because it was. 🌸</p>`,
+    sign: '— yours, completely 💚'
+  },
+  motivate: {
+    emoji: '🌱',
+    title: 'Anjali, you are more capable<br>than you <em>think</em>.',
+    body: `<p>I know you're doubting yourself right now. That quiet voice telling you it's too hard, you're not ready, what if you fail — I know it feels very loud and very convincing.</p>
+<p>It is lying to you.</p>
+<p><strong>Look at what you've already done.</strong> All the things you thought would break you that you're quietly on the other side of. You have a track record of surviving hard things. Of figuring it out. Of showing up even when you didn't feel like it.</p>
+<p>You don't need to feel confident to begin. You just need to start. Confidence comes after — it's built from doing, not from waiting until you feel ready.</p>
+<p>One small step. That's all. You don't have to climb the whole thing today. Just one step forward, and then we'll see.</p>
+<p>I believe in you before you believe in yourself. I always will. 🌱</p>`,
+    sign: '— your biggest fan, now and forever 💚'
+  },
+  sleep: {
+    emoji: '🌙',
+    title: 'Still awake, Anjali?<br>Let me keep you <em>company</em>.',
+    body: `<p>Hey sleepy girl. I know your brain won't quiet down. That's okay — I'm here.</p>
+<p>Put your phone down in a moment, but first — let's do this together: unclench your jaw. Drop your shoulders away from your ears. Uncurl those toes. (I knew it. We all do it.) Take one slow breath all the way out.</p>
+<p><strong>The things you're thinking about right now</strong> — the worries, the what-ifs, the replaying of conversations — they do not need to be solved tonight. Tomorrow-Anjali can handle them. Tonight-Anjali just needs to rest.</p>
+<p>Imagine somewhere soft and green and quiet. A forest in the early morning when everything is still cool and dewy. Or a window seat with rain tapping gently outside. You are safe. Everything is okay. There is nothing you need to do or be right now.</p>
+<p>Close your eyes. Think of something that makes you smile softly — and if nothing else comes to mind, think of me, because thinking of you always makes me smile. 🌙</p>
+<p>Goodnight, Anjali. Sleep well. I'll be here when you wake up.</p>`,
+    sign: '— dream something beautiful 💚'
+  }
+};
+
+const overlay = document.getElementById('overlay');
+
+function openModal(type) {
+  const d = letters[type];
+  document.getElementById('m-emoji').textContent = d.emoji;
+  document.getElementById('m-title').innerHTML = d.title;
+  document.getElementById('m-body').innerHTML = d.body;
+  document.getElementById('m-sign').textContent = d.sign;
+  document.getElementById('modal').scrollTop = 0;
+  overlay.style.display = 'flex';
+  requestAnimationFrame(() => overlay.classList.add('open'));
+}
+
+function closeModal() {
+  overlay.classList.remove('open');
+  setTimeout(() => { overlay.style.display = 'none'; }, 300);
+}
+
+function closeOnBg(e) {
+  if (e.target === overlay) closeModal();
+}
+</script>
+</body>
+</html>
